@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: #ffffff;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: #000000;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.5);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  */
+  /* 
+  a seguir é um atalho ou uma shorthand property, ou seja, uma forma mais curta de escrever as propriedades de background. A ordem é a seguinte: background: color image repeat position/size;
+  /*background: color image repeat position/size
+  */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  /* catei esse code do fonts.google.com mas soh copie a parte que interessa (font-family: "Inter", sans-serif;) e add a cor **/
+
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+
+  /* geralmente nao precisa colocar a height, porque o conteudo dentro do container vai definir a altura*/
+
+  /*
+  border: 1px solid red; 
+  coloque a borda so pra ver o tamanho do container, mas depois que tu tiver certeza que o tamanho ta certo, tu pode apagar a borda.
+  */
+  margin: 56px auto 0px;
+
+  /* 
+  margin-top: 56px;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+   tem que ser nessa sequencia, porque o CSS vai aplicar a primeira info para o top, a segunda info para o right, a terceira info para o bottom e a quarta info para o left.
+  esses carinhas podem ser substituidos por margin: 56px auto auto auto; ou margin: 56px auto; (o segundo auto vai ser aplicado para o bottom e o left e right vao ser aplicados com o auto). o padding é a mesma coisa, soh que ele vai ser aplicado para dentro do container, e o margin é aplicado para fora do container.
+  */
+
+  padding: 0 24px;
+}
+/* profile */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  /* no CSS não precisa definir a  height, porque a altura vai ser definida automaticamente de acordo com a proporção da imagem*/
+  margin: auto;
+}
+
+#profile p {
+  font-size: 16px;
+  /* por padrao, a font-size dos navegadores é 16px, entao se tu nao colocar a font-size, o texto vai ficar com 16px mesmo. Mas como no Figma tem a info de font-size, tu pode colocar a mesma info no CSS pra ficar igual ao design. */
+
+  font-weight: 500;
+  line-height: 24px;
+  /* 
+  essas info tu conseguiria tirar do Figma, mas agora soh consegue visualizar se pagar o modo dev. Mas tem uma forma de conseguir essas info sem pagar, que é usando a extensão do Figma para o Chrome, chamada Figma Plus. Com ela, tu consegue clicar em qualquer elemento do design e ver as info de font-size, font-weight, line-height, etc. 
+  Ka conseguiu clicando na Typography do Figma e vendo as info de font-size, font-weight, line-height, etc.
+  */
+
+  margin-top: 8px;
+}
+
+/* switch */
+#switch {
+  /*border: 1px solid red;*/
+  position: relative; /* o position relative vai fazer com que o botão fique posicionado em relação ao elemento pai, que é o #switch. o #switch tem que ter position relative, porque se ele nao tiver, o botão vai ficar posicionado em relação ao body, e nao em relação ao #switch. */
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute; /* o position absolute vai fazer com que o botão fique posicionado em relação ao elemento pai, que é o #switch. o #switch tem que ter position relative, porque se ele nao tiver, o botão vai ficar posicionado em relação ao body, e nao em relação ao #switch. */
+
+  top: 50%;
+
+  z-index: 1; /* o z-index vai fazer com que o botão fique acima do span, porque o span tem um z-index menor. o z-index é uma propriedade que define a ordem de empilhamento dos elementos, ou seja, qual elemento vai ficar acima do outro. quanto maior o valor do z-index, mais acima o elemento vai ficar. */
+
+  left: 0;
+  transform: translateY(-50%);
+  /* o transform vai fazer com que o botão fique posicionado em relação ao elemento pai, que é o #switch. o #switch tem que ter position relative, porque se ele nao tiver, o botão vai ficar posicionado em relação ao body, e nao em relação ao #switch. */
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links */
+ul {
+  list-style: none;
+  display: flex; /* o display flex vai fazer com que os elementos dentro do ul fiquem na horizontal, e nao na vertical como padrao. */
+
+  flex-direction: column; /* o flex-direction vai fazer com que os elementos dentro do ul fiquem na vertical, e nao na horizontal como padrao. */
+
+  gap: 16px; /* o gap vai definir o espaçamento entre os elementos dentro do ul. ele não coloca espaçamento entre o ul e os elementos fora dele, mas sim entre os elementos dentro do ul, ou seja, em cima do primeiro e abaixo do último elementos não vai haver espaçamento */
+
+  padding: 24px 0; /* o padding vai definir o espaçamento entre o ul e os elementos fora dele. ele coloca espaçamento em cima do primeiro elemento e abaixo do último elemento, mas não coloca espaçamento entre os elementos dentro do ul. */
+}
+
+ul li a {
+  border: 1px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 24px;
+
+  background: var(
+    --surface-color
+  ); /* o background é a cor de fundo do elemento, e o --surface-color é a variável que define essa cor. */
+
+  border: 1px solid var(--stroke-color); /* o border  é a cor da borda, e o --stroke-color é a variável que define essa cor. */
+
+  border-radius: 8px; /* o border-radius vai fazer com que os cantos do elemento fiquem arredondados. o valor do border-radius é a quantidade de arredondamento, ou seja, quanto maior o valor, mais arredondado o elemento vai ficar. */
+
+  backdrop-filter: blur(
+    4px
+  ); /* o backdrop-filter vai fazer com que o fundo do elemento fique borrado. o valor do blur é a quantidade de borrão, ou seja, quanto maior o valor, mais borrado o fundo do elemento vai ficar. */
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /* o -webkit-backdrop-filter é a versão do backdrop-filter para o Safari, que não suporta o backdrop-filter. */
+
+  text-decoration: none; /* o text-decoration vai fazer com que o link não tenha sublinhado. */
+
+  font-weight: 500; /* o font-weight vai fazer com que o texto fique mais grosso. o valor do font-weight é a quantidade de grosso, ou seja, quanto maior o valor, mais grosso o texto vai ficar. também funfa se colocar `bold`*/
+
+  transition: all 0.3s ease-in-out; /* o transition vai fazer com que a mudança de estado do elemento seja suave. o valor do transition é a duração da transição, ou seja, quanto maior o valor, mais lenta a transição vai ser. o ease-in-out é a forma como a transição vai acontecer, ou seja, se vai ser linear, acelerada ou desacelerada. */
+}
+
+/* pseudo-selectors */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* social links */
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+  font-size: 24px;
+  border-radius: 50%;
+
+  transition: background 0.3s ease-in-out; /* o transition vai fazer com que a mudança de estado do elemento seja suave. o valor do transition é a duração da transição, ou seja, quanto maior o valor, mais */
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}

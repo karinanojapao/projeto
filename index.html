@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-br" class="">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevLinks</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- o ./ significa dizer que o style.css esta nessa propria pasta, mas sem ./ tb funfa -->
+  </head>
+  <body>
+    <div id="container">
+      <div id="profile">
+        <!-- para criar a profile, pode digitar hashtag profile-->
+        <img
+          src="./assets/aavatar.png"
+          alt="Foto de uma personagem de anime com cabelos longos, orelhas de gato, com olhar suspeito"
+        />
+        <p>@karinamizuta</p>
+      </div>
+
+      <div id="switch" onclick="toggleMode()">
+        <button></button>
+        <span></span>
+      </div>
+
+      <ul>
+        <li>
+          <a href="#">Inscrever-se ni NLW</a>
+        </li>
+
+        <li>
+          <a href="#">Baixar meu e-book</a>
+        </li>
+
+        <li>
+          <a href="https://github.com/karinamizuta">Ver meu portfólio</a>
+        </li>
+
+        <li>
+          <a href="https://rocketseat.com.br/explorer" target="_blank"
+            >Conheça o Explorer</a
+          >
+          <!-- target="_blank" faz com que o link abra em outra aba -->
+        </li>
+      </ul>
+      <div id="social-links">
+        <a href="https://github.com/karinamizuta" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+
+        <a href="https://instagram.com/karinamizuta" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+
+        <a href="https://youtube.com/karinamizuta" target="_blank">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+
+        <a href="https://linkedin.com/in/karinamizuta" target="_blank">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+      </div>
+      <footer>
+        Feito com <ion-icon name="heart"></ion-icon> pela
+        <a href="https://rocketseat.com.br/" target="_blank">Rocketseat</a>
+      </footer>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
