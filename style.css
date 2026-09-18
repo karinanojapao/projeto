@@ -46,7 +46,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
 
   /* geralmente nao precisa colocar a height, porque o conteudo dentro do container vai definir a altura*/
 
